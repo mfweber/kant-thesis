@@ -1,0 +1,51 @@
+% Basic packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+
+\usepackage{babel}%
+\usepackage[useregional]{datetime2}% custom formatted dates, used in author_info.tex
+\usepackage{csquotes}%  Required by babel
+
+\usepackage[draft=false]{scrlayer-scrpage}
+
+\usepackage[full]{textcomp}% Fix warning with missing font shapes
+
+\usepackage[font=small,format=plain,%  Customized figure captions 
+   labelfont=bf,labelsep=space]{caption}%
+
+\usepackage[draft=false]{microtype}%  Better spacing (ugly line breaks are corrected most easily in draft mode... deactivation of microtype in that mode might change the places at which lines are broken)
+
+\usepackage{graphicx}%
+\graphicspath{{./images/}}%  Graphics directory
+
+\usepackage{tikz}% used for Feynman diagrams, see tikz.tex
+
+\usepackage{ctable}%  tables with captions & footnotes
+
+\usepackage{appendix}%  Appendices for individual chapters
+
+\usepackage{setspace}%  sin­glespac­ing / onehalfspacing / doublespacing commands
+
+\usepackage{enumitem}%  Some customization for enumerate
+
+\usepackage{lastpage}%  Removes some warning
+
+\usepackage{printlen}%  Print the width of the page, useful for figures
+\uselengthunit{mm}
+
+\usepackage{xpatch}%  For some custom patches
+
+\usepackage{fnpct}%  automatically places footnote marks after punctuation marks as it should be
+
+\usepackage{marginnote}%  Extension of the \marginpar command
+\usepackage{ragged2e}%  hyphenation in margin notes... not too great
+\renewcommand*{\raggedleftmarginnote}{\RaggedLeft}
+\renewcommand*{\raggedrightmarginnote}{\RaggedRight}
+
+\usepackage{xcolor}% colors defined in styling.tex
+
+\usepackage{ellipsis}%  correct some whitespace issue for ellipses (doesn't work with XeLaTeX's mathspec?)
+
+\usepackage{siunitx}% correct typesetting for dimensional numbers (e.g. \SI{1}{\micro\litre})
+

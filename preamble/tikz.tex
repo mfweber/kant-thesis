@@ -1,0 +1,21 @@
+% TikZ for Feynman diagrams
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{calc}
+   
+\tikzset{
+   linePlain/.style={draw=black, thick},
+   lineWithArrow/.style={draw=black, thick, postaction={decorate},decoration={markings,mark=at position .6 with {\arrow[scale=1.75]{stealth}}}},
+   lineWithArrowInline/.style={draw=black, semithick, postaction={decorate},decoration={markings,mark=at position .7 with {\arrow[scale=1.75]{stealth}}}},
+   vertex/.style={draw, shape=circle, fill=black, minimum size=1.1mm, inner sep=0mm, outer sep=0mm},
+}
+\newcommand{\upperloop}[3][]{%
+   \draw[#1] let \p1 = ($(#2)-(#3)$) in (#2) arc (0:180:({0.5*veclen(\x1,\y1)});)
+} 
+\newcommand{\lowerloop}[3][]{%
+   \draw[#1] let \p1 = ($(#2)-(#3)$) in (#2) arc (360:180:({0.5*veclen(\x1,\y1)});)
+} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

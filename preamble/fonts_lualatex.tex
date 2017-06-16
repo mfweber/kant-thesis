@@ -1,0 +1,58 @@
+% If you use LuaLaTeX or XeLaTeX:
+% > comment out \pdfminorversion in main.tex
+% > comment out the other font files in main.tex
+% > comment out inputenc & fontenc in basic_packages.tex
+% > comment out \pdfpageattr in pdfs.tex
+% > remove pdftex in hyperref_metadata.tex
+
+% in case you own these fonts... legally
+
+
+%% Serif (LuaLaTex)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[adobe-garamond,expert]{mathdesign}% math for Garamond
+%
+%\usepackage[no-math]{fontspec}
+%
+%\setmainfont[%
+%	Ligatures={TeX,Common}
+%]{Adobe Garamond Pro}% EB Garamond, Adobe Garamond Pro, Garamond Premier Pro
+
+
+%% Serif (XeLaTeX)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{mathspec}
+
+\setmainfont[%
+	Ligatures={TeX,Common}
+]{Adobe Garamond Pro}% EB Garamond, Adobe Garamond Pro, Garamond Premier Pro
+
+\setmathsfont(Digits,Latin,Greek)[%
+	Numbers={Proportional}%
+]{EB Garamond}
+
+\setmathrm{EB Garamond}
+
+\AtBeginEnvironment{tabular}{%
+	\addfontfeature{RawFeature=+tnum}
+}
+
+\newfontfamily{\smallcaps}[%
+	RawFeature={+c2sc,+scmp}%
+]{EB Garamond}
+
+
+%% Sans serif 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setsansfont[%
+	Ligatures=TeX%,%
+	%Scale=MatchLowercase%
+]{Linux Biolinum O}%  Lato Regular  
+
+
+%% Typewriter 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setmonofont[%
+	Ligatures=TeX%,%
+	%Scale=MatchLowercase%
+]{Inconsolata}%  Linux Biolinum O, Source Code Pro

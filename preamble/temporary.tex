@@ -1,0 +1,18 @@
+% Temporary stuff (delete in final Doc?)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Various packages
+\usepackage{verbatim}%  Multiline comments
+\usepackage[normalem]{ulem}%  Crossing stuff out with \sout{}
+\usepackage{kantlipsum}%  Random text generator
+%\usepackage[pagewise]{lineno}%  Line numbers
+
+% Author notes - can be hidden by switching the %s
+\newcommand{\mnote}[1]{{\color{myPurple}[M: #1]}}%  my own notes (M = Markus)
+%\newcommand{\mnote}[1]{}
+
+% Multiline comments - can be hidden by switching the %s
+\newenvironment{commentDetails}{\ \newline\color{purple} Comment (additional details):}{\ignorespacesafterend\ \newline}
+%\newcommand{\commentDetails}{\comment}
+
+\usepackage[noframe]{showframe}

@@ -1,0 +1,16 @@
+% Epigraphs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{epigraph}
+\renewcommand{\textflush}{flushright}
+\setlength\epigraphwidth{\textwidth}
+\setlength\epigraphrule{0pt}
+
+% Remove page number from epigraphstyle 
+% Otherwise there's a centered page number on first page of chapters
+\makeatletter%
+   \xpatchcmd\epigraphhead%
+  {\let\@evenfoot}%
+  {\let\@oddfoot\@empty\let\@evenfoot}%
+  {}{}%
+\makeatother

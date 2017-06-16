@@ -1,0 +1,41 @@
+% Bibliography style
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The bibliography really isn't optimal...
+% Someone who knows how to modify .bbx files should have a look at custom-numeric-comp.bbx.
+% I found that file on the web but did some modifications to it.
+% I tried to add an Oxford comma to the bibliography but didn't succeed.
+% (there's a dictionary for Oxford spelling in ./etc/ , needed that for an IOP article)
+ 
+% Some citations to different sources are included in ch.2 (article, book, inbook, proceedings, etc.).
+% A good alternative to biber is to use bibtex with the unsrturl.bst stylefile (back-refs don't work then).
+
+\usepackage[%
+   backend=biber,%
+   bibencoding=utf8,%
+   style=custom-numeric-comp,%  nice compact number style
+   giveninits=true,%  abbreviate author names
+   hyperref=true,%  have links, requires hyperref
+   doi=true,%  have doi links
+   url=false,%  no urls
+   isbn=false,%  no isbn numbers
+   arxiv=false,%  no arXiv
+   backref=true,%  have back references to citation location
+   sorting=none,%  have citations appear in the order they are cited
+   abbreviate=true,%  use abbreviations, e.g. for months
+   defernumbers=true,%  required by resetnumbers
+   maxbibnames =10%  abbreviate et.al. for four authors and more
+]{biblatex}
+
+\renewbibmacro{in:}{}%  no "In:" after title
+\DeclareFieldFormat[article]{pages}{#1}%  no p./pp. for articles (b./c. the single numbers in e.g. PRL are no page numbers?)
+\DeclareFieldFormat[article]{volume}{\textbf{#1}}%  bold volume number for articles
+\DeclareFieldFormat[inbook,book,thesis]{title}{\textit{#1}}%  italic title
+\DeclareFieldFormat[article,unpublished,inproceedings,incollection,online]{title}{#1}%      normal title
+  
+% Makes the "et al" italicized bibliography
+\xpatchbibmacro{name:andothers}{%
+   \bibstring{andothers}%
+   }{%
+   \bibstring[\emph]{andothers}%
+   }{}{}

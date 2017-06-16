@@ -1,0 +1,100 @@
+% Some useful definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (some are only included because I needed them for an IOP review)
+
+% Theorem environment (amsthm package)
+\newtheoremstyle{customTheorem}% name
+	{1ex}% Space above
+	{1ex}% Space below
+	{}% Body font
+	{0pt}% Indent amount
+	{\bfseries}% Theorem head font
+	{}% Punctuation after theorem head
+	{5pt plus 1pt minus 1pt}% Space after theorem head
+	{}% Theorem head spec (can be left empty, meaning ‘normal’) 
+\theoremstyle{customTheorem}
+\newtheorem{theorem}{Theorem}
+
+% Left/right parentheses (mathtools package)
+\DeclarePairedDelimiter\paren{\lparen}{\rparen}
+
+% Text in Equations
+\newcommand*{\mathtext}[1]{\mathrm{#1}}
+\newcommand*{\mathtextit}[1]{\mathit{#1}}
+
+% Exponential and imaginary unit (were required to be upright for IOP)
+\newcommand*{\ee}{\mathrm{e}}
+\newcommand*{\ii}{\mathrm{i}} 
+
+% Bold italic vector
+\newcommand\hmmax{0}%  Patch for bm. With garamondx, the bold italic vector looks better,
+\newcommand\bmmax{0}%  it's not great...but ok. Don't know why.
+\usepackage{bm}%
+\newcommand*{\vect}[1]{\bm{#1}}  
+
+% Unit matrix
+\usepackage{dsfont}
+
+% Miscellaneous
+\newcommand*{\bigO}{\mathord{\mathrm{O}}}
+\newcommand*{\transpose}{\intercal}
+\newcommand*{\laplaceOp}{\Delta}
+\newcommand*{\discreteLaplaceOp}{\underline{\Delta}}
+\newcommand*{\unitMatrix}{\mathds{1}}
+\newcommand*{\hermite}{\mathit{He}}
+\newcommand*{\legendreTransform}{\mathcal{L}}
+\newcommand*{\fourierTransform}{\mathcal{F}}
+\newcommand*{\complexPath}{\mathcal{C}}
+\newcommand*{\binomCoeff}[2]{\binom{#1}{#2}}
+\DeclareMathOperator{\Res}{Res}
+
+% Sets
+\newcommand*{\naturals}{\mathbb{N}}
+\newcommand*{\integers}{\mathbb{Z}}
+\newcommand*{\rationals}{\mathbb{Q}}
+\newcommand*{\reals}{\mathbb{R}}
+\newcommand*{\complex}{\mathbb{C}}
+\newcommand*{\quaternions}{\mathbb{H}}
+\newcommand*{\octonions}{\mathbb{O}}
+\newcommand*{\lattice}{\mathbb{L}}
+
+% Mathematical functions
+\newcommand*{\arcosh}[1]{\mathtext{arcosh}\,#1}
+ 
+% Differentials and integral signs
+\newcommand*{\diff}{\mathop{}\!\mathrm{d}}
+\usepackage{esint}%  Some more integral signs
+
+% Fock space operations
+\newcommand*{\numberOperator}{\mathsf{n}}
+\newcommand*{\cre}{\mathsf{c}}
+\newcommand*{\ann}{\mathsf{a}}
+
+% Bra-ket notation (little bit optimized for garamondx... not optimal)
+\newcommand*{\LLangle}{\langle\kern-2\nulldelimiterspace\langle\kern0.25\nulldelimiterspace}
+\newcommand*{\bigLangle}{\big\langle}
+\newcommand*{\bigLLangle}{\bigLangle\kern-2.25\nulldelimiterspace\bigLangle}
+\newcommand*{\BigLangle}{\Big\langle}
+\newcommand*{\BigLLangle}{\BigLangle\kern-2.35\nulldelimiterspace\BigLangle}
+
+\newcommand*{\RRangle}{\rangle\kern-2\nulldelimiterspace\rangle}
+\newcommand*{\bigRangle}{\big\rangle}
+\newcommand*{\bigRRangle}{\bigRangle\kern-2.25\nulldelimiterspace\bigRangle}
+\newcommand*{\BigRangle}{\Big\rangle}
+\newcommand*{\BigRRangle}{\BigRangle\kern-2.35\nulldelimiterspace\BigRangle}
+
+\newcommand*{\langleKern}{\langle\kern0.25\nulldelimiterspace}
+\newcommand*{\vertLeft}{|\kern0.5\nulldelimiterspace}
+\newcommand*{\vertRight}{\kern0.25\nulldelimiterspace|}
+\newcommand*{\vertCenter}{\kern0.25\nulldelimiterspace|\kern0.5\nulldelimiterspace}
+
+\newcommand*{\braA}[1]{{\langleKern #1 \vertRight}}
+\newcommand*{\ketA}[1]{{\vertLeft #1 \rangle}}
+\newcommand*{\braketA}[2]{\langleKern #1 \vertCenter #2 \rangle}
+
+\newcommand*{\braB}[1]{\LLangle #1 \vertRight}
+\newcommand*{\ketB}[1]{\vertLeft #1 \RRangle}
+\newcommand*{\braketB}[2]{\LLangle #1 \vertCenter #2 \RRangle}
+
+\newcommand*{\braketBA}[2]{\LLangle #1 \vertCenter #2 \rangle}
+\newcommand*{\braketAB}[2]{\langleKern #1 \vertCenter #2 \RRangle}

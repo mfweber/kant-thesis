@@ -1,0 +1,168 @@
+%%  THESIS TEMPLATE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%  Markus F. Weber (2016)
+%%
+
+\RequirePackage[l2tabu, orthodox]{nag}%  Reports deprecated or bad LaTeX code
+\pdfminorversion=6%  version of the generated PDF, not really crucial
+
+%% if you encounter ugly text on pages with figures:
+%\pdfpageattr{/Group << /S /Transparency /I true /CS /DeviceRGB>>}
+
+
+%%  FONT SIZE, PAGE LAYOUT, etc.  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+\documentclass[%  see KOMA-script documentation
+  %
+  % Some packages don't understand the british/american options.
+  % Therefore, english is included as fallback option.
+  % You may replace "british" by "american" both here and below in \selectlanguage
+  %
+  ngerman, english, british,% last option=default
+  twoside,%
+  12pt,%
+  %DIV=10, BCOR=10mm,%  see below
+  headinclude=true,%
+  chapterprefix=false,% 
+  appendixprefix=false,% 
+  headings=normal,% see styling.tex for settings of headings
+  numbers=noenddot,%
+  bibliography=totoc,%  puts the bibliography into the table of contents
+  final%  final / draft
+]{scrbook}%  see KOMA-script documentation
+
+
+
+%% A4 (PRINT, For Web: left=right=35mm might be more convenient)
+%% > Based on the DIV=10/BCOR=10mm KOMA-script settings
+%% > but with symmetric top/bottom margins
+\usepackage[a4paper,% 
+  %
+  left=30mm,%
+  right=40mm,%
+  marginparwidth=27.5mm,%
+  %
+  top=43.5mm,%
+  bottom=43.5mm%
+]{geometry}
+
+
+
+%%  PACKAGES, FONTS, STYLING, etc. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+\include{preamble/math_basics}%  AMS packages, some basic math styling
+\include{preamble/basic_packages}%  fontenc, inputenc, babel, ...
+
+% ADD YOUR INFO TO THIS FILE (name, title of the thesis,...)
+\include{author_info}%
+
+%\include{preamble/fonts_lualatex}% If you prefer LuaLaTeX or XeLaTeX
+\include{preamble/fonts_serif}
+\include{preamble/fonts_sans}
+\include{preamble/fonts_typewriter}
+\include{preamble/pdfs}%  inclusion of full-page PDFs (for publications)
+\include{preamble/epigraphs}
+\include{preamble/bibliographystyle}
+\include{preamble/styling}%  indentation, TOC, header, footer, ...
+\include{preamble/tikz}%  for Feynman diagrams
+\include{preamble/shortcuts}% 
+\include{preamble/math_shortcuts}%  some math shortcuts
+\include{preamble/temporary}%  for comments in the draft (remove in final version)
+\include{preamble/hyperref_metadata}%  Hyperrefs, metadata, load after general_info
+\include{preamble/glossaries}%  glossaries and acronyms
+
+
+
+
+\addbibresource{bibliography.bib}%  Bibliography file
+
+\begin{document}
+
+  % Header
+  \renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+  \renewcommand{\sectionmark}[1]{\markright{\textit{\thesection}\enspace#1}}
+
+  \clearscrheadfoot
+  \pagestyle{scrheadings}
+
+  \lehead{\pagemark}
+  \rohead{\pagemark}
+  \lohead{\leftmark}
+  %\cohead{\leftmark}
+
+
+  \selectlanguage{british}% see the above comments on languages
+   
+   
+  % FRONT MATTER (Cover page, title page, referee page, ...)
+  %
+  \frontmatter
+  \pagenumbering{roman}
+  \setcounter{page}{1}
+ 
+  \include{frontmatter/coverpage}
+    
+    
+  % \newrefsegment creates bibliography segment 1
+  % this segment is printed below with \printbibliography(...segment=1...)
+  % further segments can be created if further bibliographies are needed  
+  \newrefsegment 
+  
+   
+  \begin{otherlanguage}{ngerman}% Deutsche Zusammenfassung
+    \include{frontmatter/zusammenfassung}
+  \end{otherlanguage}
+
+  %\include{frontmatter/projects}
+  \include{frontmatter/summary}
+
+  \pdfbookmark{Contents}{ContentsAnchor}
+  \tableofcontents
+  \cleardoubleemptypage% The PDF bookmark to the LOF does not work correctly without this command
+   
+  \pdfbookmark{List of Figures}{FiguresAnchor}
+  \listoffigures
+  \cleardoubleemptypage
+   
+  \pdfbookmark{List of Tables}{TablesAnchor}
+  \listoftables
+  \cleardoubleemptypage
+   
+   
+
+  % MAIN MATTER (main text and appendix)
+  %
+  \mainmatter
+
+  \pagenumbering{arabic}
+  \setcounter{page}{1}
+     
+  \rehead{\leftmark}
+  \lohead{\rightmark}
+  %\cehead{\leftmark}
+  %\cohead{\rightmark}
+  
+  \include{mainmatter/introduction}
+  \include{mainmatter/project_1}
+  \include{mainmatter/project_2}
+  \include{mainmatter/project_3}
+  \include{mainmatter/conclusion}
+  \include{mainmatter/appendix}
+   
+   
+   
+  % BACK MATTER (Bibliography and acknowledgements)
+  %
+  \backmatter
+	
+  %\printglossary[type=\acronymtype]% prints a list of acronyms
+
+  \printbibliography[title={\bibname},segment=1,resetnumbers=true]%  resetnumbers only relevant when using separate bibliographies in individual chapters
+
+  \cleardoubleemptypage
+   
+  %\begin{otherlanguage}{ngerman}  % if the acknowledgements are written in German
+  \include{backmatter/acknowledgements}
+  %\end{otherlanguage}
+
+\end{document}

@@ -1,0 +1,88 @@
+%% Fonts with math support: http://www.tug.dk/FontCatalogue/mathfonts.html
+
+
+
+% Installation of garamondx and Baskervaldx (http://tug.org/fonts/getnonfreefonts/):
+%  run the following commands in garamondx folder:
+%  > sudo texlua install-getnonfreefonts (no responsibility for damages ;) )
+%  > getnonfreefonts garamondx
+%  > getnonfreefonts Classico
+%  > getnonfreefonts Baskervaldx
+
+
+
+%  Times
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% comes with sans serif and typewriter font (comment out those files in main.tex)
+%\usepackage{newtxtext}
+%\usepackage[bigdelims]{newtxmath}
+
+
+%  URW Garamond No.8 (optimized)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  There's some warnings on missing fonts for garamondx... 
+%  but I didn't see any problems in the output.
+\usepackage{garamondx}%  [osf] 
+\usepackage[garamondx,bigdelims]{newtxmath}%  mods: cmintegrals
+
+% Modify math fonts for \mathbb, \mathcal, etc.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% should be loaded after other math font packages as far as I know
+\usepackage[cal=cm]{mathalfa}%  see package doc for options
+
+
+%%  EB Garamond
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% > lacks some math symbols (e.g. \partial)
+%
+%\usepackage{ebgaramond}%  
+%\usepackage[bigdelims]{newtxmath}%
+%\usepackage{ebgaramond-maths}%  ugly spacing in fractions
+%%  EB Garamond doesn't have a bold version.
+%%  Could possibly replace bold by swash (textbf -> textsw)
+%%  OR: Fake bold with the following two lines (needs ``getnofreefonts garamond'' for bold URW Garamond)
+%\newcommand{\fakebf}{\fontfamily{mdugm}\fontseries{b}\selectfont}% These two lines fake bold Garamond.
+%\DeclareTextFontCommand{\textbf}{\fakebf}%  But it's not really EB Garamond.
+
+
+%  Baskerville (optimized)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{Baskervaldx}%  mods: osf, ...
+%\usepackage[baskervaldx,bigdelims]{newtxmath}
+
+
+%  Bitstream Charter (optimized)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[scaled=.98,sups]{XCharter}%  mods: osf, ...
+%\usepackage[charter,bigdelims,scaled=1.07]{newtxmath}%  mods: vvarbb, scaled=1.04
+
+
+%  Linux Libertine
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{libertineRoman}
+%\usepackage[libertine,bigdelims]{newtxmath}
+
+
+%  Latin Modern (corresponding "unicode-math" package only available in XeLaTeX/LuaLaTeX)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{lmodern}
+
+
+%  Minion Pro
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{MinionPro}%  Provides both serif text & math (comment the stuff below)
+%\usepackage{MnSymbol}
+
+
+%  Palatino
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{mathpazo}%  Palatino (text and math... don't know why
+%\usepackage{eulervm}%  Euler math is always suggested for it)
+
+
+%  Utopia
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[scaled=.98]{erewhon}%  mods: osf, ...
+%\usepackage[utopia,vvarbb,bigdelims]{newtxmath}
+
+

@@ -1,0 +1,46 @@
+% Hyperrefs and PDF metadata
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\PassOptionsToPackage{hyphens}{url}%  Correct line breaks of URLs
+\urlstyle{rm}%  tt=typewriter; I did not like the typewriter DOIs in the bibliography
+
+\usepackage{hyperxmp}
+
+\usepackage[%
+  pdftex,%
+  pdfpagemode = {UseNone},%  required by the LMU library
+  bookmarks,%
+  plainpages=false,%
+  pdfpagelabels,%
+  %
+  pdftitle={\Title{}},%  required by the LMU library
+  pdfauthor={\Author{}},%  required by the LMU library
+  pdfdate={\pdfcreationdate},%
+  pdfcopyright={Copyright (c) \the\year, \Author{}},%
+  pdfsubject={\ThesisType{}},%
+  pdfkeywords={\Keywords{}},%
+  pdfcontactemail={\EMail{}},%
+  pdflang={en}%
+]{hyperref}
+  
+%% FOR THE PRINT VERSION
+%\hypersetup{%
+%	hidelinks%  
+%}
+
+%% FOR THE ONLINE VERSION
+\hypersetup{%
+  colorlinks = true,%
+  linkcolor = myLightBlue,%  myGreen
+  urlcolor  = myGreen,%
+  citecolor = myLightBlue,%  anchorcolor / menucolor... don't know what they are for
+  linktocpage% makes the page number hyperlinks (looks better)
+}
+
+\usepackage{url}% There's some reason it's down here. 
+
+\usepackage[noabbrev]{cleveref}% for internal links to sections, chapters, figures,...
+\crefname{equation}{}{}
+\newcommand{\crefrangeconjunction}{--}
+
+

@@ -1,0 +1,150 @@
+%%  Custom colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{myGreen}{rgb}{0.072 0.42 0.03}
+\definecolor{myLightBlue}{rgb}{0. 0.35 0.68}
+\definecolor{myBlue}{rgb}{0.28 0.36 0.48}
+\definecolor{myRed}{rgb}{0.65 0.04 0.07}
+\definecolor{myPurple}{rgb}{0.52 0. 0.53}
+
+
+%%  Style of margin notes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand*{\marginfont}{\small}
+
+
+%%  Style of footnotes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  use indent OR line
+%  for a paragraph style indent choose 2.5em (1+1.5em)
+\deffootnote{1em}{0em}{\thefootnotemark\hspace*{.5em}}%
+
+
+%%  Font size on cover page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter%
+	\renewcommand\Huge{\@setfontsize\Huge{29}{34.8}}%
+\makeatother
+
+
+%%  Kill widows and orphans
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[all,defaultlines=2]{nowidow}%  at least 2 lines at bottom and top of pages
+
+
+%%  Line spread
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\linespread{1.04}
+
+
+%%  Style of chapter & section headlines
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% quotchap
+%\usepackage[palatino]{quotchap}
+%\renewcommand*{\chapterheadstartvskip}{\vspace*{-1.5\baselineskip}}
+%\renewcommand*{\chapterheadendvskip}{\vspace{1.3\baselineskip}}
+%\definecolor{chaptergrey}{rgb}{0.6 0.6 0.6} % colour of chapter number
+
+
+%% KOMA script
+%% all headings
+%\setkomafont{disposition}{\color{myBlue}\sffamily\bfseries}%   changes all headings
+
+%% fonts of headings
+%\setkomafont{chapter}{\fontsize{18}{21.6}\selectfont}
+%\setkomafont{section}{\fontsize{14}{16.8}\selectfont}
+%\setkomafont{subsection}{\fontsize{13}{15.6}\selectfont}
+%\setkomafont{subsubsection}{\fontsize{12.5}{15}\selectfont}
+%\setkomafont{paragraph}{\fontsize{12}{14.4}\selectfont}
+%\setkomafont{subparagraph}{\fontsize{12}{14.4}\selectfont}
+
+%% positions of headings
+%\RedeclareSectionCommand[beforeskip=-1.6\baselineskip, afterskip=1.4\baselineskip]{chapter}% default: -3 / 1.4
+%\RedeclareSectionCommand[beforeskip=-\baselineskip, afterskip=.5\baselineskip]{section}
+%\RedeclareSectionCommand[beforeskip=-.5\baselineskip, afterskip=0.25\baselineskip]{subsection}
+%\RedeclareSectionCommand[beforeskip=-.25\baselineskip,afterskip=1sp]{subsubsection}
+%\RedeclareSectionCommands[beforeskip=-.25\baselineskip,afterskip=1sp]{paragraph}%  introduces a line break after paragraph headings
+  
+  
+
+%%  Paragraph indentation & spacing
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% It's typically considered bad style to use both indent and spacing (check any book you have)
+% Note that additional \parskip also affects the space around headings. 
+% Those spaces can be changed with the options above.
+\setlength{\parindent}{1.5em}%  Indent new paragraph
+\setlength{\parskip}{0\baselineskip}%  Space between paragraphs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%  Table of contents & Numbering
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% I decided against the numbering of sections, figures, and equations by chapters:
+
+% depth (3=subsubsection)
+\setcounter{secnumdepth}{3}%
+\setcounter{tocdepth}{3}
+
+%% Nice style:
+%\usepackage[tocgraduated]{tocstyle}
+%\usetocstyle{nopagecolumn}
+
+
+%% I used the following style (the chapter number before the subappendix is hidden in project_1.tex)
+%% numbers
+%\renewcommand{\theequation}{\arabic{equation}}%  running equation number in chapters
+%\renewcommand{\thefigure}{\arabic{figure}}%  running figure number in chapters
+%\renewcommand{\thetable}{\arabic{table}}%  running table number in chapters
+
+%% numbers (comment out for standard appearance)
+\renewcommand\thechapter{\Roman{chapter}}
+\renewcommand\thesection{\thechapter.\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection \alph{subsubsection}}
+
+%% spacing (comment out for standard appearance)
+%\makeatletter
+%  \renewcommand*\l@section{\bprot@dottedtocline{1}{1.5em}{1.25em}}
+%  \renewcommand*\l@subsection{\bprot@dottedtocline{2}{2.75em}{1.99em}}
+%  \renewcommand*\l@subsubsection{\bprot@dottedtocline{3}{4.74em}{2.65em}}
+%  \renewcommand*\@pnumwidth{2em}
+%\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%% IF YOU HAVE TROUBLE WITH FLOATS UNCOMMENT THE FOLLOWING LINES
+%
+%% I didn't see any use for them in my documents.
+%% maybe they are already integrated in the KOMA script?
+
+%% Alter some LaTeX defaults for better treatment of figures:
+%% See p.105 of "TeX Unbound" for suggested values.
+%% See pp. 199-200 of Lamport's "LaTeX" book for details.
+%
+%%  General parameters, for ALL pages:
+%\renewcommand{\topfraction}{0.9}%  max fraction of floats at top
+%\renewcommand{\bottomfraction}{0.8}%  max fraction of floats at bottom
+%
+%%  Parameters for TEXT pages (not float pages):
+%\setcounter{topnumber}{1}
+%\setcounter{bottomnumber}{2}
+%\setcounter{totalnumber}{4}%  2 may work better
+%\setcounter{dbltopnumber}{2}%  for 2-column pages
+%\renewcommand{\dbltopfraction}{0.9}%  fit big float above 2-col. text
+%\renewcommand{\textfraction}{0.07}%  allow minimal text w. figs
+%%  Parameters for FLOAT pages (not text pages):
+%\renewcommand{\floatpagefraction}{0.7}%  require fuller float pages
+%%  N.B.: floatpagefraction MUST be less than topfraction !!
+%\renewcommand{\dblfloatpagefraction}{0.7}%  require fuller float pages
+%%  remember to use [htp] or [htpb] for placement
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%or
+%\renewcommand{\topfraction}{0.85}
+%\renewcommand{\textfraction}{0.1}
+%\renewcommand{\floatpagefraction}{0.85}
+

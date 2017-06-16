@@ -1,0 +1,18 @@
+% Inclusion of PDFs (publications)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{pdfpages}		
+
+% Counters for references to the page numbers of the PDFs
+\newcounter{includepdfpage}
+\newcounter{currentpagecounter}
+\newcommand{\addlabelstoallincludedpages}[1]{%
+  \refstepcounter{includepdfpage}%
+  \stepcounter{currentpagecounter}%
+  \label{#1.\thecurrentpagecounter}%
+}
+\newcommand{\modifiedincludepdf}[3]{%
+  \setcounter{currentpagecounter}{0}%
+  \includepdf[#1,pagecommand={\addlabelstoallincludedpages{#2}\thispagestyle{empty}}]{#3}%
+}
+

@@ -1,0 +1,23 @@
+% Roman numerals
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter%
+	\newcommand{\rmnum}[1]{\romannumeral #1}%
+	\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}%
+\makeatother
+
+
+% Copyright symbol
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand*{\myCopyrightLarge}{\textsf{\large\textcopyright}}
+%\newcommand*{\myCopyrightNormal}{\textsf{\large\textcopyright}}
+\newcommand*{\myCopyrightLarge}{\textsf{\raisebox{-0.79ex}{\fontsize{20pt}{24}\selectfont\textcopyright}}}
+\newcommand*{\myCopyrightNormal}{\textsf{\raisebox{-0.81ex}{\fontsize{17.5pt}{20.4}\selectfont\textcopyright}}}
+
+
+
+
+% Miscellaneous
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{customCenter}[1][\topsep]
+  {\setlength{\topsep}{#1}\par\kern\topsep\centering}% \begin{customCenter}[<len>]
+  {\par\kern\topsep}% \end{customCenter}

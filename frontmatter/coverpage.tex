@@ -1,0 +1,92 @@
+{\setlength{\parindent}{0em}
+
+% Cover page %%%%%%%%%%%%%%%%%%%
+
+\newgeometry{% Cover page geometry
+  left=25mm,%
+  right=25mm,%
+  marginparwidth=0mm,%
+  %
+  top=55mm,%
+  bottom=40mm%
+}  
+
+\pdfbookmark{Cover}{Cover}
+  
+\thispagestyle{empty}
+  
+\begin{customCenter}
+  \Huge\textsf{\mainTitle{}}\\[2mm]%  Main title 
+  \LARGE\textsf{\subTitle{}}\\[13mm]%  Subtitle
+  \Large\textsf{\Author{}}\\%  Author
+  \vspace*{\fill}
+  \includegraphics[width=2.2in]{sigil}\\[13mm]
+  \large\textsf{\PlaceOfSubmission{}\vphantom{, \DTMusedate{DateOfSubmission}} \DTMfetchyear{DateOfSubmission}}
+\end{customCenter}
+  
+\clearpage
+	  
+	  
+% Copyright page %%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+	  
+\enlargethispage{0.65mm}
+	  
+\vspace*{\fill}
+\begin{customCenter}
+  \large\onehalfspacing
+  \myCopyrightLarge{} \textsf{\DTMfetchyear{DateOfSubmission}{} \Author{}}
+  %\\[3mm]
+  %\small
+  %This document is optimized for on-screen display and\\includes minor corrections to the original dissertation.
+\end{customCenter}
+
+\clearpage
+
+
+% Title page %%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+  
+\begin{customCenter}
+  \Huge\textsf{\mainTitle{}}\\[2mm]%  Main title 
+  \LARGE\textsf{\subTitle{}}\\[13mm]%  Subtitle
+  \Large\textsf{\Author{}}\\%  Author
+  %
+  \vspace*{\fill}
+  \normalsize
+  \doublespacing
+  	A dissertation submitted\\%  
+  	to the \Department{} at the\\%  
+  	\University{}\\%  
+  	for the degree of\\%
+  	\textsc{\large{}Doctor rerum naturalium}\\%
+  \singlespacing
+  %
+  \vspace*{\fill}
+  \includegraphics[width=2.2in]{sigil}\\[13mm]%  Logo
+  \large\textsf{\PlaceOfSubmission{}, \DTMusedate{DateOfSubmission}}%  Place and Date
+\end{customCenter}
+
+\clearpage
+\restoregeometry
+	  
+	  
+% Referee page %%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+\enlargethispage{0.55cm}
+	  
+\vspace*{\fill}
+%
+\begin{flushleft}
+  \large\onehalfspacing
+  First referee: \FirstReferee{}\\
+  Second referee: \SecondReferee{}\\
+  Day of the oral examination: \DTMusedate{DateOfOralExamination}
+\end{flushleft}
+
+\clearpage
+  
+}
+	
+	

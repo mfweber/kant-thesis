@@ -1,0 +1,23 @@
+\usepackage[acronym,toc,nopostdot,nonumberlist]{glossaries}% nonumberlist -> no backrefs
+
+\glsdisablehyper% deactivates all hyperlinks... I did not print the list of acronyms so I did not need those links
+
+% UNCOMMENT the following line if you want to print the glossaries. Also uncomment the \printglossary command in main.tex
+%\makeglossaries
+
+\renewcommand*\glspostdescription{\dotfill}% dotted line to backrefs, conforms with the style of the table of contents
+
+
+% Glossary
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% see https://www.sharelatex.com/learn/Glossaries
+ 
+
+%% Acronyms
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newacronym[\glslongpluralkey={evolutionary game theories}]% custom long form (otherwise just an "s" added
+   {egt}%  identified
+   {EGT}%  acronym
+   {evolutionary game theory}%  meaning of the acronym
+
+\newacronym{pde}{PDE}{partial differential equation}%  plural-s OK
