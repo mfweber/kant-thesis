@@ -6,7 +6,7 @@ A LaTeX thesis template for whoever may need one. I created the template while w
 
 Click on the image to open the PDF file:
 
-[![alt text](preview.png)](https://github.com/mfweber/kant-thesis/blob/master/main.pdf)
+[![Thesis preview](preview.png)](https://github.com/mfweber/kant-thesis/blob/master/main.pdf)
 
 ## Typesetting
 
